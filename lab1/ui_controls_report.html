@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Controls Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h2 { color: #2c3e50; }
+        .control-section { margin-bottom: 40px; }
+        .examples { display: flex; gap: 40px; margin-top: 10px; }
+        .example-block { background: #f9f9f9; padding: 16px; border-radius: 8px; border: 1px solid #ccc; min-width: 220px; }
+        .comment { color: #2980b9; font-style: italic; margin-bottom: 10px; }
+        .tab-demo { display: flex; gap: 10px; margin-bottom: 10px; }
+        .tab { padding: 6px 16px; border: 1px solid #aaa; border-radius: 4px 4px 0 0; background: #eee; cursor: pointer; }
+        .tab.active { background: #fff; border-bottom: 1px solid #fff; }
+        .tab-content { border: 1px solid #aaa; border-top: none; padding: 10px; background: #fff; }
+        .tooltip-demo { position: relative; display: inline-block; }
+        .tooltip-demo .tooltip-text { visibility: hidden; background: #333; color: #fff; text-align: center; border-radius: 4px; padding: 5px; position: absolute; z-index: 1; bottom: 125%; left: 50%; transform: translateX(-50%); opacity: 0; transition: opacity 0.3s; }
+        .tooltip-demo:hover .tooltip-text { visibility: visible; opacity: 1; }
+        table.data-grid { border-collapse: collapse; width: 100%; }
+        table.data-grid th, table.data-grid td { border: 1px solid #aaa; padding: 6px 10px; text-align: left; }
+        table.data-grid th { background: #eee; }
+    </style>
+</head>
+<body>
+    <h1>UI Controls: Description and Examples</h1>
+
+    <!-- Radiobutton -->
+    <div class="control-section">
+        <h2>1. Radiobutton</h2>
+        <div class="comment">Radiobuttons allow users to select one option from a set. Only one can be selected at a time.</div>
+        <ul>
+            <li>Used for mutually exclusive choices (e.g., gender selection).</li>
+            <li>Grouped together visually and functionally.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <strong>Gender:</strong><br>
+                <input type="radio" name="gender1" id="male1"><label for="male1">Male</label>
+                <input type="radio" name="gender1" id="female1"><label for="female1">Female</label>
+            </div>
+            <div class="example-block">
+                <strong>Payment Method:</strong><br>
+                <input type="radio" name="pay1" id="card1"><label for="card1">Card</label>
+                <input type="radio" name="pay1" id="cash1"><label for="cash1">Cash</label>
+                <input type="radio" name="pay1" id="paypal1"><label for="paypal1">PayPal</label>
+            </div>
+            <div class="example-block">
+                <strong>Choose a color:</strong><br>
+                <input type="radio" name="color1" id="red1"><label for="red1">Red</label>
+                <input type="radio" name="color1" id="blue1"><label for="blue1">Blue</label>
+                <input type="radio" name="color1" id="green1"><label for="green1">Green</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkbox -->
+    <div class="control-section">
+        <h2>2. Checkbox</h2>
+        <div class="comment">Checkboxes let users select one or more options independently.</div>
+        <ul>
+            <li>Used for multiple selections (e.g., interests, settings).</li>
+            <li>Each checkbox operates independently.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <strong>Interests:</strong><br>
+                <input type="checkbox" id="sports1"><label for="sports1">Sports</label>
+                <input type="checkbox" id="music1"><label for="music1">Music</label>
+                <input type="checkbox" id="art1"><label for="art1">Art</label>
+            </div>
+            <div class="example-block">
+                <strong>Settings:</strong><br>
+                <input type="checkbox" id="notif1"><label for="notif1">Notifications</label>
+                <input type="checkbox" id="darkmode1"><label for="darkmode1">Dark Mode</label>
+            </div>
+            <div class="example-block">
+                <strong>Choose fruits:</strong><br>
+                <input type="checkbox" id="apple1"><label for="apple1">Apple</label>
+                <input type="checkbox" id="banana1"><label for="banana1">Banana</label>
+                <input type="checkbox" id="orange1"><label for="orange1">Orange</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text input -->
+    <div class="control-section">
+        <h2>3. Text input</h2>
+        <div class="comment">Text inputs allow users to enter and edit text data.</div>
+        <ul>
+            <li>Used for forms, search bars, comments, etc.</li>
+            <li>Can be single-line or multi-line (textarea).</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <label for="name1">Name:</label><br>
+                <input type="text" id="name1" placeholder="Enter your name">
+            </div>
+            <div class="example-block">
+                <label for="search1">Search:</label><br>
+                <input type="text" id="search1" placeholder="Search...">
+            </div>
+            <div class="example-block">
+                <label for="comment1">Comment:</label><br>
+                <textarea id="comment1" rows="3" cols="22" placeholder="Write your comment..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="control-section">
+        <h2>4. Tabs</h2>
+        <div class="comment">Tabs organize content into separate views, accessible by clicking tab headers.</div>
+        <ul>
+            <li>Used for navigation between related sections (e.g., profile/settings).</li>
+            <li>Improves usability by reducing clutter.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <div class="tab-demo">
+                    <div class="tab active">Profile</div>
+                    <div class="tab">Settings</div>
+                </div>
+                <div class="tab-content">Profile content here...</div>
+            </div>
+            <div class="example-block">
+                <div class="tab-demo">
+                    <div class="tab active">Home</div>
+                    <div class="tab">About</div>
+                    <div class="tab">Contact</div>
+                </div>
+                <div class="tab-content">Home page content...</div>
+            </div>
+            <div class="example-block">
+                <div class="tab-demo">
+                    <div class="tab active">Tab 1</div>
+                    <div class="tab">Tab 2</div>
+                </div>
+                <div class="tab-content">Tab 1 content...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button -->
+    <div class="control-section">
+        <h2>5. Button</h2>
+        <div class="comment">Buttons trigger actions when clicked (e.g., submit, save, delete).</div>
+        <ul>
+            <li>Can be styled for emphasis (primary, secondary, danger).</li>
+            <li>Used for form submission, navigation, etc.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <button>Submit</button>
+            </div>
+            <div class="example-block">
+                <button style="background: #27ae60; color: #fff;">Save</button>
+            </div>
+            <div class="example-block">
+                <button style="background: #e74c3c; color: #fff;">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text label -->
+    <div class="control-section">
+        <h2>6. Text label</h2>
+        <div class="comment">Text labels provide information or describe other UI elements.</div>
+        <ul>
+            <li>Used for field names, instructions, or status messages.</li>
+            <li>Improves accessibility and clarity.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <label for="email1">Email address:</label>
+            </div>
+            <div class="example-block">
+                <span style="color: #e67e22;">Required field</span>
+            </div>
+            <div class="example-block">
+                <span style="color: #16a085;">Success! Your data was saved.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link -->
+    <div class="control-section">
+        <h2>7. Link</h2>
+        <div class="comment">Links navigate users to other pages or resources.</div>
+        <ul>
+            <li>Usually underlined and colored for visibility.</li>
+            <li>Can open in the same or new tab.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <a href="https://www.google.com" target="_blank">Google</a>
+            </div>
+            <div class="example-block">
+                <a href="https://www.wikipedia.org">Wikipedia</a>
+            </div>
+            <div class="example-block">
+                <a href="#">Local page link</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip -->
+    <div class="control-section">
+        <h2>8. Tooltip</h2>
+        <div class="comment">Tooltips display additional information when hovering over an element.</div>
+        <ul>
+            <li>Used for hints, explanations, or extra details.</li>
+            <li>Improves user experience without cluttering UI.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <div class="tooltip-demo">Hover me
+                    <span class="tooltip-text">Tooltip text 1</span>
+                </div>
+            </div>
+            <div class="example-block">
+                <div class="tooltip-demo">?
+                    <span class="tooltip-text">Help info</span>
+                </div>
+            </div>
+            <div class="example-block">
+                <div class="tooltip-demo">Info
+                    <span class="tooltip-text">More details here</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dropdown list -->
+    <div class="control-section">
+        <h2>9. Dropdown list</h2>
+        <div class="comment">Dropdown lists let users select one option from a collapsible list.</div>
+        <ul>
+            <li>Used for country selection, settings, filters, etc.</li>
+            <li>Can support single or multiple selections.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <label for="country1">Country:</label>
+                <select id="country1">
+                    <option>Ukraine</option>
+                    <option>Poland</option>
+                    <option>Germany</option>
+                </select>
+            </div>
+            <div class="example-block">
+                <label for="color2">Choose color:</label>
+                <select id="color2">
+                    <option>Red</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                </select>
+            </div>
+            <div class="example-block">
+                <label for="fruit2">Fruit:</label>
+                <select id="fruit2">
+                    <option>Apple</option>
+                    <option>Banana</option>
+                    <option>Orange</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data grid -->
+    <div class="control-section">
+        <h2>10. Data grid</h2>
+        <div class="comment">Data grids display tabular data with sorting, filtering, and editing features.</div>
+        <ul>
+            <li>Used for spreadsheets, admin panels, reports.</li>
+            <li>Supports pagination, search, and inline editing.</li>
+        </ul>
+        <div class="examples">
+            <div class="example-block">
+                <table class="data-grid">
+                    <tr><th>Name</th><th>Age</th></tr>
+                    <tr><td>Anna</td><td>22</td></tr>
+                    <tr><td>Ivan</td><td>25</td></tr>
+                </table>
+            </div>
+            <div class="example-block">
+                <table class="data-grid">
+                    <tr><th>Product</th><th>Price</th></tr>
+                    <tr><td>Book</td><td>$10</td></tr>
+                    <tr><td>Pen</td><td>$2</td></tr>
+                </table>
+            </div>
+            <div class="example-block">
+                <table class="data-grid">
+                    <tr><th>City</th><th>Country</th></tr>
+                    <tr><td>Kyiv</td><td>Ukraine</td></tr>
+                    <tr><td>Berlin</td><td>Germany</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

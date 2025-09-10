@@ -4,23 +4,140 @@
     <meta charset="UTF-8">
     <title>UI Controls Report</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h2 { color: #2c3e50; }
-        .control-section { margin-bottom: 40px; }
-        .examples { display: flex; gap: 40px; margin-top: 10px; }
-        .example-block { background: #f9f9f9; padding: 16px; border-radius: 8px; border: 1px solid #ccc; min-width: 220px; }
-        .comment { color: #2980b9; font-style: italic; margin-bottom: 10px; }
-        .tab-demo { display: flex; gap: 10px; margin-bottom: 10px; }
-        .tab { padding: 6px 16px; border: 1px solid #aaa; border-radius: 4px 4px 0 0; background: #eee; cursor: pointer; }
-        .tab.active { background: #fff; border-bottom: 1px solid #fff; }
-        .tab-content { border: 1px solid #aaa; border-top: none; padding: 10px; background: #fff; }
-        .tooltip-demo { position: relative; display: inline-block; }
-        .tooltip-demo .tooltip-text { visibility: hidden; background: #333; color: #fff; text-align: center; border-radius: 4px; padding: 5px; position: absolute; z-index: 1; bottom: 125%; left: 50%; transform: translateX(-50%); opacity: 0; transition: opacity 0.3s; }
-        .tooltip-demo:hover .tooltip-text { visibility: visible; opacity: 1; }
-        table.data-grid { border-collapse: collapse; width: 100%; }
-        table.data-grid th, table.data-grid td { border: 1px solid #aaa; padding: 6px 10px; text-align: left; }
-        table.data-grid th { background: #eee; }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(120deg, #e0eafc, #cfdef3);
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 48px;
+            color: #2d3a4b;
+            font-size: 2.3rem;
+        }
+        h2 {
+            color: #3a4a5a;
+            margin-bottom: 8px;
+        }
+        .control-section {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+            margin: 32px auto;
+            max-width: 900px;
+        }
+        .examples {
+            display: flex;
+            gap: 32px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .example-block {
+            background: #f6f8fa;
+            padding: 18px 16px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            min-width: 220px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .comment {
+            color: #2980b9;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .tab-demo {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+        .tab {
+            padding: 8px 24px;
+            border: 1px solid #6a93cb;
+            border-radius: 8px 8px 0 0;
+            background: #e0eafc;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2d3a4b;
+            transition: background 0.2s, color 0.2s;
+        }
+        .tab.active {
+            background: #fff;
+            color: #4e6fae;
+            border-bottom: 1px solid #fff;
+        }
+        .tab-content {
+            border: 1px solid #6a93cb;
+            border-top: none;
+            padding: 16px;
+            background: #fff;
+            border-radius: 0 0 8px 8px;
+            min-height: 40px;
+            color: #2d3a4b;
+        }
+        .tooltip-demo {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip-demo .tooltip-text {
+            visibility: hidden;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip-demo:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        table.data-grid {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table.data-grid th, table.data-grid td {
+            border: 1px solid #aaa;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        table.data-grid th {
+            background: #e0eafc;
+        }
+        @media (max-width: 900px) {
+            .control-section { max-width: 98vw; }
+            .examples { gap: 12px; }
+        }
     </style>
+    <script>
+    // Interactive tabs for section 4
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.tab-demo').forEach(function(tabDemo) {
+            const tabs = tabDemo.querySelectorAll('.tab');
+            const content = tabDemo.parentElement.querySelector('.tab-content');
+            if (tabs.length > 1) {
+                tabs.forEach(function(tab, idx) {
+                    tab.addEventListener('click', function() {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        // Set content based on tab text
+                        if (content) {
+                            content.textContent = tab.textContent + ' content...';
+                        }
+                    });
+                });
+            }
+        });
+    });
+    </script>
 </head>
 <body>
     <h1>UI Controls: Description and Examples</h1>
